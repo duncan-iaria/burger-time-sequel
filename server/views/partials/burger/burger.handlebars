@@ -1,0 +1,16 @@
+<div class="burger">
+    {{this.burger_name}}
+
+    {{!-- FOR UPDATING BURGER FROM DB --}}
+    {{#if this.is_devoured}}
+    {{else}}
+        <form class="inline-form" action="/{{this.id}}?_method=PUT" method="POST">
+            <input class="button button-eat" type="submit" value="EAT">
+        </form>
+    {{/if}}
+
+    {{!-- FOR DELETING BURGER FROM DB --}}
+    <form class="inline-form" action="/{{this.id}}?_method=DELETE" method="POST">
+        <input class="button button-delete" type="submit" value="X">
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="title-container">
+        <img src="assets/images/burger01.png"/>
+        <h1>burger time!</h1>
+    </div>
+
+    {{!-- container for available --}}
+    <div class="available-burgers">
+        <h3>Available Burgers</h3>
+        {{#each burgers}}
+            {{#if this.is_devoured}}
+            {{else}}
+                {{> burger/burger}}
+            {{/if}}
+        {{/each}}
+    </div>
+
+    {{!-- container for devoured burgers --}}
+    <div class="devoured-burgers">
+        <h3>Devoured Burgers</h3>
+        {{#each burgers}}
+            {{#if this.is_devoured}}
+                {{> burger/burger}}
+            {{/if}}
+        {{/each}}
+    </div>
+
+    <div class="burger-input-container">
+        {{> burger/burger-input}}
+    </div>
+
+</div>
+
+{{!-- <script src="test.js"></script> --}}

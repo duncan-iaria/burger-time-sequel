@@ -1,0 +1,124 @@
+@import 'reset';
+
+$seaGreen: #73AC85;
+$ketchupRed: #F05746;
+$cheeseYellow: #FEC567;
+$meatyBrown: #95432E;
+$bunBrown: #DB8537;
+$backgroundBrown: #F9A369;
+$dark: #172A34;
+
+$buttonHeight: 26px;
+
+body
+{   
+    font-size: 16px;
+    color: $dark;
+    line-height: 1.5em;
+    
+    background-color: $backgroundBrown;
+}
+
+h1, h2, h3
+{
+    font-weight: bold;
+}
+
+h1
+{
+    font-size: 4em;
+}
+
+h2
+{
+    font-size: 2em;
+}
+
+h3
+{
+    font-size: 1.25em;
+}
+
+.container
+{
+    width: 600px;
+    margin: 10px auto;
+}
+
+.title-container
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.burger
+{
+    margin: 4px 0px;
+}
+
+.available-burgers, .devoured-burgers
+{
+    width: 300px;
+    border: 0px solid $bunBrown;
+    margin-top: 30px;
+}
+
+.available-burgers
+{
+    float: left;
+    text-align: left;
+}
+
+.devoured-burgers
+{
+    float: right;
+    text-align: right;
+}
+
+.burger-input-container
+{
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    padding: 26px 0px;
+    clear: both;
+
+    border: 0px solid $ketchupRed;
+}
+
+.burger-input
+{
+    height: $buttonHeight;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+
+    padding: 0px 6px;
+}
+
+.button
+{
+    font-weight: bold;
+    color: #fff;
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    height: $buttonHeight;
+    display: inline-block;
+}
+
+.button-eat
+{
+    background-color: $seaGreen;
+}
+
+.button-delete
+{
+    background-color: $ketchupRed;
+}
+
+.inline-form
+{
+    display: inline-block;
+}
