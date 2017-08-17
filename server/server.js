@@ -5,8 +5,9 @@ const bodyParser = require( 'body-parser' );
 const methodOverride = require( 'method-override' );
 const path = require( 'path' );
 
-const burger = require( './models/burger' );
-const routes = require( './controllers/burger.controller.js' );
+// const routes = require( './controllers/burger.controller.js' );
+
+const db = require( './models' );
 
 //=========================
 //  SERVER
@@ -37,12 +38,14 @@ server.use( methodOverride( '_method' ) );
 //=========================
 //  MAIN ROUTES
 //=========================
-server.use( "/", routes );
+// server.use( "/", routes );
 
 //=========================
 //  INIT
 //=========================
-server.listen( port, onServerInit )
+//server.listen( port, onServerInit )
+
+db.sequelize.sync().then( function(){ server.listen( port, onServerInit ) } );
 
 function onServerInit()
 {
