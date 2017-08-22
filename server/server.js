@@ -43,7 +43,7 @@ server.use( "/", routes );
 //  INIT
 //=========================
 //start sequelize, then start the server
-db.sequelize.sync().then( initServer );
+db.sequelize.sync( { force: true } ).then( initServer );
 
 //start the server itself
 function initServer()
