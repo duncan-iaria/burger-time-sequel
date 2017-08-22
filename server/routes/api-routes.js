@@ -39,6 +39,34 @@ function onPostBurger( tRequest, tResponse )
     }
 }
 
+//=========================
+//  BURGER UPDATE
+//=========================
+router.put( '/:id', onUpdateBurger )
+
+function onUpdateBurger( tRequest, tResponse )
+{
+    if( tRequest.params.id != null )
+    {
+        console.log( `update burger with id ${ tRequest.params.id }` );
+        db.Burger.update
+        ( 
+            { is_devoured: true }, 
+            { where: { id: tRequest.params.id } }
+        ).then( onUpdateBurgerComplete );
+    }
+    else
+    {
+        console.log( `there was an error when attempting to update a burger (no id passed)` );
+    }
+
+    function onUpdateBurgerComplete( tResult )
+    {
+        console.log( tResult );
+        tResponse.redirect( '/' );
+    }
+}
+
 
 
 //=========================
