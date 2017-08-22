@@ -67,7 +67,22 @@ function onUpdateBurger( tRequest, tResponse )
     }
 }
 
+//=========================
+//  BURGER DELETE
+//=========================
+router.delete( '/:id', onDeleteBurger )
 
+function onDeleteBurger( tRequest, tResponse )
+{
+    //console.log( `delete burger ${ tRequest.params.id }` );
+    db.Burger.destroy( { where: { id: tRequest.params.id } } ).then( onDeleteBurgerComplete );
+
+    function onDeleteBurgerComplete( tResult )
+    {
+        console.log( tResult );
+        tResponse.redirect( '/' );
+    }
+}
 
 //=========================
 // EXPOTS

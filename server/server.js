@@ -14,7 +14,6 @@ const db = require( './models' );
 //=========================
 const server = express();
 const port = process.env.PORT;
-const router = express.Router();
 
 //view paths
 const viewPath = path.join( __dirname, 'views/' );
