@@ -5,7 +5,7 @@ const bodyParser = require( 'body-parser' );
 const methodOverride = require( 'method-override' );
 const path = require( 'path' );
 
-// const routes = require( './controllers/burger.controller.js' );
+const routes = require( './routes/api-routes.js' );
 
 const db = require( './models' );
 
@@ -38,15 +38,21 @@ server.use( methodOverride( '_method' ) );
 //=========================
 //  MAIN ROUTES
 //=========================
-// server.use( "/", routes );
+server.use( "/", routes );
 
 //=========================
 //  INIT
 //=========================
-//server.listen( port, onServerInit )
+//start sequelize, then start the server
+db.sequelize.sync().then( initServer );
 
-db.sequelize.sync().then( function(){ server.listen( port, onServerInit ) } );
+//start the server itself
+function initServer()
+{
+    server.listen( port, onServerInit );
+}
 
+//callback when server has started
 function onServerInit()
 {
     console.log( `Server is listening at ${ port }` );
